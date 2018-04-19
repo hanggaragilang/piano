@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="container">
+        <button class="btn-info mb-3">1</button>
+        <button class="btn-info mb-3">2</button>
+        <button class="btn-info mb-3">3</button>
+    </div>
+    
+    <audio id="audio-1" src="music/wav-piano-sound-master/wav/a1.wav"></audio>
+    <audio id="audio-2" src="music/wav-piano-sound-master/wav/a1s.wav"></audio>
+    <audio id="audio-3" src="music/wav-piano-sound-master/wav/b1.wav"></audio>
+    <audio id="audio-4" src="music/wav-piano-sound-master/wav/c1.wav"></audio>
+
+    
+
+    <script>
+    
+        $(document).ready(() => {
+
+            function play(key){
+                $('#audio-' + key).trigger('load').trigger('play')
+            }
+
+            $('body').on('keypress', (ev) => {
+                play(ev.key)
+                // console.log(ev)
+            });
+
+            $('button').on('click', (ev) => {
+                const key = ev.target.innerText
+                play(key)
+            });
+        });
+        
+    </script>
+
+</body>
+</html>
